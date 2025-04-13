@@ -1,8 +1,11 @@
+
 @extends('frontend.layouts.master')
+
+@section('content')
 
 @section('title', 'Home -')
 
-@section('content')
+
 
 <!DOCTYPE html>
 <html>
@@ -19,6 +22,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="images/favicon.png" type="">
 
+   
     <!-- bootstrap core css -->
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}" />
@@ -39,6 +43,7 @@
 
 <body>
     <div class="hero_area">
+       
 
         <!-- slider section -->
         <section class="slider_section ">
@@ -797,4 +802,4 @@
 </body>
 
 </html>
-@endsection
+@endsection 

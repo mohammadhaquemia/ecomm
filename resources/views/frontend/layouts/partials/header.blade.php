@@ -1,31 +1,105 @@
-<header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                       
-                        @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Log in
-                                    </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+   <style>
+      .logo{
+         border-radius: 10px !important;
+         width: 150px !important;
+         height: 60px !important;
+      }
+    
+   </style>
+</head>
 
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif
-                    </header>
+
+<header class="header_section">
+   <div class="container">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+         <a class="navbar-brand " href="#"><img  class="logo" src="{{asset('assets/images/logo1.png')}}" alt="ned logo" /></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+               <li class="nav-item ">
+                  <a class="nav-link" href="{{route('f.index')}}">Home <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{{route('f.services')}}">Services</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{{route('f.products')}}">Products</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{{route('f.blog')}}">Blog</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{{route('f.about')}}">About</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{{route('f.contact')}}">Contact</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                        <g>
+                           <g>
+                              <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                                          c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                           </g>
+                        </g>
+                        <g>
+                           <g>
+                              <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                                          C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                                          c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                                          C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                           </g>
+                        </g>
+                        <g>
+                           <g>
+                              <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                           </g>
+                        </g>
+                     </svg>
+                  </a>
+               </li>
+               <form class="form-inline">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                     <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+               </form>
+            </ul>
+            <!-- logout -->
+            <li class="nav-item dropdown">
+               @auth
+               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ Auth::user()->name }}
+               </a>
+               @else
+               <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+               @endauth
+
+               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  @auth
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                     @csrf
+                  </form>
+                  @endauth
+               </div>
+            </li>
+
+         </div>
+      </nav>
+   </div>
+</header>
