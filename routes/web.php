@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Backend\User\UserProfileController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContractController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -10,7 +12,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], function () {
     // Route::get('/profile', [UserProfileController::class, 'profile'])->name('profile');
-}); 
+});
 
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -22,4 +24,11 @@ Route::group(['as' => 'f.'], function () {
     Route::get('/products',  [HomeController::class, 'products'])->name('products');
     Route::get('/services',  [HomeController::class, 'services'])->name('services');
 
+
+ 
 }); 
+
+
+
+// Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('send.email');
