@@ -298,7 +298,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item topbar-user dropdown hidden-caret">
+                <li class="nav-item topbar-user dropdown hidden-caret ">
                     <a
                         class="dropdown-toggle profile-pic"
                         data-bs-toggle="dropdown"
@@ -312,7 +312,7 @@
                         </div>
                         <span class="profile-username">
                             <span class="op-7">Hi,</span>
-                            <span class="fw-bold">Hizrian</span>
+                            <span class="fw-bold">Hasan</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -326,10 +326,10 @@
                                             class="avatar-img rounded" />
                                     </div>
                                     <div class="u-text">
-                                        <h4>Hizrian</h4>
-                                        <p class="text-muted">hello@example.com</p>
+                                        <h4>Hasan</h4>
+                                        <p class="text-muted">admin@example.com</p>
                                         <a
-                                            href="profile.html"
+                                            href="#"
                                             class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                     </div>
                                 </div>
