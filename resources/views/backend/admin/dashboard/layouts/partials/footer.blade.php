@@ -22,8 +22,8 @@
             <a href="http://www.themekita.com">Md. Haque Mia</a>
         </div>
         <div>
-            Distributed by
-            <a target="_blank" href="https://themewagon.com/">ThemeWab</a>.
+            Distributed by 
+            <a target="_blank" href="https://themewagon.com/">Md. Haque Mia</a>.
         </div>
     </div>
 </footer>
